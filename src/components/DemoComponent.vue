@@ -117,7 +117,7 @@ export default {
 </script>
 
 <style scoped>
-/* Your component's style code here */
+/* Component's style code here */
 .active {
   font-weight: bold;
 }

@@ -8,7 +8,7 @@
 
     <!-- Add content for Option 2 -->
     <div v-if="selectedOption === 'option2'">
-      <!-- Your content for Option 2 goes here -->
+      <!-- content for Option 2 goes here -->
       <p>This is content for Option 2.</p>
     </div>
     
@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      username: '', // This is where you can store the input value
+      username: '', // This is where I can store the input value
       selectedOption: 'option1', // Default option
     };
   },

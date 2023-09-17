@@ -22,5 +22,5 @@ export default {
 </script>
 
 <style scoped>
-/* Your component's style code here */
+/*component's style code here */
 </style>
