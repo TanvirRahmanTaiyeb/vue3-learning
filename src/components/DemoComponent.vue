@@ -117,11 +117,57 @@ export default {
 </script>
 
 <style scoped>
+/* Your component's style code here */
 .active {
   font-weight: bold;
 }
 
 .text-success {
   color: green;
+}
+</style>
+
+<style>
+/* External CSS */
+/* Reset default margin and padding on all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply a background color to the entire app */
+body {
+  background-color: #f0f0f0;
+}
+
+/* Style the app container */
+#app {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 40px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the input field */
+#username {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style the router view content */
+.router-view-content {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 </style>

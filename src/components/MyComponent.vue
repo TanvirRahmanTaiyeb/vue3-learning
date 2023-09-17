@@ -3,6 +3,7 @@
     <h2>{{ data.name }}</h2>
     <button @click="showDetails">Toggle Details</button>
     <p>Parent Value: {{ parentValue }}</p>
+    <slot></slot> <!-- Add a slot -->
   </div>
 </template>
 
@@ -21,5 +22,5 @@ export default {
 </script>
 
 <style scoped>
-/* component's style code here */
+/* Your component's style code here */
 </style>

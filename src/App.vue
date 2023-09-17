@@ -1,10 +1,18 @@
 <template>
   <div id="app">
+    <!-- Include the DemoComponent -->
     <DemoComponent />
-    <input type="text" id="username" v-model="username" />
+
+    <!-- Add the input field with 'v-model' modifiers -->
+    <input type="text" id="username" v-model.lazy="username" />
+
+    <!-- Add content for Option 2 -->
     <div v-if="selectedOption === 'option2'">
+      <!-- Your content for Option 2 goes here -->
       <p>This is content for Option 2.</p>
     </div>
+    
+    <!-- Use router-view to display routed components -->
     <router-view></router-view>
   </div>
 </template>
@@ -19,15 +27,14 @@ export default {
   },
   data() {
     return {
-      username: '',
-      selectedOption: 'option1',
+      username: '', // This is where you can store the input value
+      selectedOption: 'option1', // Default option
     };
   },
 };
 </script>
 
-<style>
-/* Existing styles for #app */
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,37 +43,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
-/* custom styles from styles.css */
-/* Reset default margin and padding on all elements */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Apply a background color to the entire app */
-body {
-  background-color: #f0f0f0;
-}
-
-/* Style the input field */
-#username {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Style the router view content */
-.router-view-content {
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Add more custom styles as needed */
 </style>
