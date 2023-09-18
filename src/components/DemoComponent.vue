@@ -57,6 +57,12 @@
 
     <!-- 10. Components -->
     <MyComponent :data="items[0]" :parentValue="parentValue" @toggleDetails="toggleDetails" />
+
+    <!-- 8. Form Input Bindings with v-model modifiers -->
+    <input type="text" v-model.trim="textInput" /> <!-- Added .trim modifier -->
+    <input type="text" v-model.lazy="lazyInput" /> <!-- Added .lazy modifier -->
+    <input type="text" v-model.number="numericInput" /> <!-- Added .number modifier -->
+    <textarea v-model.trim="textareaValue"></textarea> <!-- Added .trim modifier -->
   </div>
 </template>
 
@@ -85,6 +91,8 @@ export default {
       textareaValue: "",
       watchedValue: "",
       parentValue: "Parent Value",
+      lazyInput: '',
+      numericInput: null,
     };
   },
 
@@ -118,56 +126,46 @@ export default {
 
 <style scoped>
 /* Component's style code here */
-.active {
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 24px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.text-success {
-  color: green;
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
+
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Add more professional styling as needed */
 </style>
 
-<style>
-/* External CSS */
-/* Reset default margin and padding on all elements */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-/* Apply a background color to the entire app */
-body {
-  background-color: #f0f0f0;
-}
 
-/* Style the app container */
-#app {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 40px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
 
-/* Style the input field */
-#username {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
 
-/* Style the router view content */
-.router-view-content {
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-</style>
