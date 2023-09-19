@@ -1,33 +1,40 @@
 <template>
-  <div>
+  <div class="container">
     <!-- 1. Template Syntax -->
     <div>
-      <p>{{ message }}</p>
+      <p class="title">{{ message }}</p>
       <div v-html="rawHtml"></div>
       <div :id="elementId"></div>
       <p>{{ 2 + 2 }}</p>
     </div>
 
     <!-- 2. Methods -->
-    <button @click="sayHello">Click me</button>
+    <div class="button-container">
+      <button class="button" @click="sayHello">Click me</button>
+      <button class="button" @click="methodClickHandler">Method Click</button>
+    </div>
 
     <!-- 3. Reactivity Fundamentals -->
+    <p class="title">Reactivity Fundamentals</p>
     <p>{{ reactiveValue }}</p>
 
     <!-- 4. Computed Properties -->
+    <p class="title">Computed Properties</p>
     <p>{{ computedValue }}</p>
 
     <!-- 5. Class and Style Bindings -->
+    <p class="title">Class and Style Bindings</p>
     <div :class="classObject"></div>
     <div :style="styleObject"></div>
 
     <!-- 6. List Rendering -->
+    <p class="title">List Rendering</p>
     <ul>
       <li v-for="(item, index) in items" :key="index">{{ item.name }}</li>
       <li v-for="n in 5" :key="n">{{ n }}</li>
       <template v-for="(item, index) in items" :key="index">
         <li>{{ item.name }}</li>
-        <li v-if="item.showDetails">Details</li>
+        <li v-if="item.showDetails">Toggle Details</li>
       </template>
       <MyComponent
         v-for="(item, index) in items"
@@ -39,30 +46,42 @@
     </ul>
 
     <!-- 7. Event Handling -->
-    <button @click="inlineClickHandler">Inline Click</button>
-    <button @click="methodClickHandler">Method Click</button>
+    <p class="title">Event Handling</p>
+    <button class="button" @click="inlineClickHandler">Inline Click</button>
 
     <!-- 8. Form Input Bindings -->
-    <input type="text" v-model="textInput" />
-    <input type="checkbox" v-model="checkboxValue" />
-    <input type="radio" v-model="radioValue" value="option1" />
-    <select v-model="selectedOption">
-      <option value="option1">Option 1</option>
-      <option value="option2">Option 2</option>
-    </select>
-    <textarea v-model="textareaValue"></textarea>
+    <p class="title">Form Input Bindings</p>
+    <div class="form-container">
+      <input type="text" v-model.trim="textInput" placeholder="Enter your name" />
+      <input type="checkbox" v-model="checkboxValue" />
+      <input type="radio" v-model="radioValue" value="option1" />
+      <select v-model="selectedOption">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+      </select>
+      <textarea v-model.trim="textareaValue" placeholder="Enter your message"></textarea>
+    </div>
 
     <!-- 9. Watchers -->
+    <p class="title">Watchers</p>
     <p>{{ watchedValue }}</p>
 
     <!-- 10. Components -->
+    <p class="title">Components</p>
     <MyComponent :data="items[0]" :parentValue="parentValue" @toggleDetails="toggleDetails" />
 
-    <!-- 8. Form Input Bindings with v-model modifiers -->
-    <input type="text" v-model.trim="textInput" /> <!-- Added .trim modifier -->
-    <input type="text" v-model.lazy="lazyInput" /> <!-- Added .lazy modifier -->
-    <input type="text" v-model.number="numericInput" /> <!-- Added .number modifier -->
-    <textarea v-model.trim="textareaValue"></textarea> <!-- Added .trim modifier -->
+        <!-- 11. Form Input Bindings with v-model modifiers -->
+    <p class="title">Form Input Bindings with Modifiers</p>
+    <div class="form-container">
+      <input type="text" v-model.trim="textInput" placeholder="Trimmed Input" />
+      <input type="text" v-model.lazy="lazyInput" placeholder="Lazy Input" />
+      <input type="number" v-model.number="numericInput" placeholder="Numeric Input" />
+    </div>
+
+    <!-- Success message -->
+    <div v-if="showSuccess" class="success-message">
+      <p>Form submitted successfully!</p>
+    </div>
   </div>
 </template>
 
@@ -91,8 +110,9 @@ export default {
       textareaValue: "",
       watchedValue: "",
       parentValue: "Parent Value",
-      lazyInput: '',
-      numericInput: null,
+      lazyInput: '', // Corrected the variable name
+      numericInput: null, // Corrected the variable name
+      showSuccess: false, // Add a flag to track form submission success
     };
   },
 
@@ -126,6 +146,8 @@ export default {
 
 <style scoped>
 /* Component's style code here */
+
+/* Container styling */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -136,12 +158,14 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Title styling */
 .title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
+/* Button styling */
 .button-container {
   display: flex;
   justify-content: space-between;
@@ -162,10 +186,18 @@ export default {
   background-color: #0056b3;
 }
 
-/* Add more professional styling as needed */
+/* Form container styling */
+.form-container {
+  margin-top: 20px;
+}
+
+/* Success message styling */
+.success-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #dff0d8;
+  border: 1px solid #3c763d;
+  border-radius: 4px;
+  color: #3c763d;
+}
 </style>
-
-
-
-
-

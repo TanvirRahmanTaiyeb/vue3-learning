@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <!-- Navigation Links -->
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">About</router-link>
+
     <!-- Include the DemoComponent -->
     <DemoComponent />
 
